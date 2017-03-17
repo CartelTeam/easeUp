@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+<style>
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the links inside the tab */
+div.tab a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+div.tab a:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+</head>
+<body>
+
+<p>Click on the links inside the tabbed menu:</p>
+
+<div class="tab">
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')">info</a>
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Paris')">chart</a>
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Tokyo')">Tweets</a>
+</div>
+
+<div id="London" class="tabcontent" >
+
+    <p>tweet info</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <button onClick="changeData()">Change Data</button>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="{% static 'donut/Donut3D.js' %}"></script>
+<bod>
+<script src="{% static 'donut/index.js' %}"></script>
+</bod>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tweets</h3>
+  <p>Tweets live from twitter</p>
+  {% for c in content %}
+		<p>{{c}}</p>
+	{% endfor %}
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+     <h1><p>hello</p>
+<p>hello</p></h1>
+</body>
+</html> 

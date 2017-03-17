@@ -1,0 +1,18 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+<!--<p>Hey, welcome to my website! I am a programmer!</p>-->
+<form action="/webapp/login">
+<div class="form-group">
+
+    <label>Login with Twitter</label>
+	
+    
+	
+  <div class="container">
+  <input type="submit" class="btn btn-info" value="Login">
+</div>
+  
+</form>
+{% include "webapp/includes/htmlsnippet.html" %}
+{% endblock %}

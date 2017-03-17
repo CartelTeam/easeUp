@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Twitter Sentiment </title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'webapp/css/bootstrap.min.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+{% block content %}
+<form action="/webapp/login/authenticated/sub" method="post">{% csrf_token %}
+<div class="form-group">
+
+    <label>Twitter Search</label>
+	<div class="col-3">
+    <input type="text" class="form-control" name="tweet" placeholder="Enter Tweet Tag">
+	</div>
+    <small id="emailHelp" class="form-text text-muted">Enter twiter tag to search.</small>
+  </div>
+  <div class="container">
+  <input type="submit" class="btn btn-info" value="Search">
+</div>
+
+</form>
+
+
+
+{% include "webapp/a.html" %}
+{% endblock %}
